@@ -16,6 +16,7 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="custom.css">
 
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -48,7 +49,9 @@
 					<p>
 						<small>Presented by <ul>
 							<li><a href="https://drupal.org/u/greggles">Greg Knaddison</a> / <a href="http://twitter.com/greggles">@greggles</a></li>
-						</small>
+                            <li><a href="https://drupal.org/u/mlhess">Michael Hess</a> / <a href="http://twitter.com/mlh407">@mlh407</a></li>
+
+                        </small>
 					</p>
 					<p>
 						<small>These slides: <a href="http://cardcorp.github.io/drupal-security-intro/">http://cardcorp.github.io/drupal-security-intro/</a></small>
@@ -71,10 +74,27 @@
 						</ul>
 					</div>
 				</section>
+                <section>
+                    <h2><a href="https://twitter.com/mlh407">Michael Hess </a></h2>
+                    <div>
+                        <div style="float:right; width:250px;">
+                            <a href="http://www.umich.edu" target="_blank">
+                                <img src="assets/michigan-logo.jpg" alt="Michigan Logo" />
+                            </a>
+                        </div>
+                        <ul style="float:left">
+                            <li>Contributed to Drupal for 6+ years</li>
+                            <li>Hosts 900 sites at the University of Michigan</li>
+                            <li>Works on large scale health care projects. </li>
+                            <li>Teaches 3 classes on Content management platforms </li>
+                        </ul>
+
+                    </div>
+                </section>
 				<section data-markdown>
 					<script type="text/template">
 						## Lots of things to cover
-
+                        - Why?
 						- Server environment
 						- Server config
 						- Personal practices
@@ -84,6 +104,26 @@
 						*we will cover them all a little*
 					</script>
 				</section>
+                <section data-background="assets/target.jpg">
+                    <h1 style="color:white">Why</h1>
+                    <div >
+                        <p style="color:white">
+                            The FBI notes that cyber attacks are eclipsing terrorism as the primary threat facing the US.
+                        </p>
+                        <p style="color:white" >
+                            75% of small and medium business surveyed reported cyber attacks.
+                        </p>
+                        <p style="color:white">
+                            A single breach in 2010 reported 38 terabytes of data stolen.  That is 2X the size of the Library of Congress.
+                        </p>
+                    </div>
+                </section>
+                <section>
+                    <h4> Everyone gets hacked, so it must be trendy. </h4>
+                </section>
+                <section  data-background="assets/biggest-hacks.jpg">
+                </section>
+
 				<section data-markdown>
 					<script type="text/template">
 						## General tips
@@ -145,6 +185,26 @@
 						- Anyone work with Drupal in SCADA?
 					</script>
 				</section>
+                <section>
+                    <h2> How to secure yourself?</h2>
+                    <h3>Brush your teeth!</h3>
+                </section>
+                <section>
+                    <h4>Brushing your teeth is a best practice.</h4>
+                    <p class="fragment">For security, you can't check a list and be done.</p>
+                    <p class="fragment">You must keep working at it. It is a process, not a one-time task.</p>
+                    <p class="fragment"> Which is why I hope everyone brushes their teeth. </p>
+                    <img class="fragment" src="assets/badmouth.jpg" width="60%">
+                </section>
+                <section>
+                    <h2>Know Your Risk Level</h2>
+                    <p>
+                        Blog vs. complex site. Your blog is likely to be compromised to send spam or to act in part of a bot net.
+                    </p>
+                    <p> Your complex site might be compromised for the data it has. </p>
+                    <p> Security is a balance.</p>
+                    <P> Is your site a target?</P>
+                </section>
 				<section data-markdown>
 					<script type="text/template">
 						## Security process
@@ -169,22 +229,26 @@
 							- [Security Advisory](https://drupal.org/security) for every security release
 					</script>
 				</section>
-				<section>
-					<h2>Security process</h2>
-					<div>
-						<a href="https://www.acquia.com/blog/keeping-drupal-secure" target="_blank">
-							<img height="500"  src="assets/Drupal-security-release_rgb-cc-by-nd.jpg" alt="Keeping Drupal secure infographic" />
-						</a>
-					</div>
-					<div>
-						<a href="https://www.acquia.com/blog/keeping-drupal-secure" target="_blank">
-							https://www.acquia.com/blog/keeping-drupal-secure
-						</a>
-					</div>
-				</section>
+                <section cite="https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013">
+                    <h3>Common Web Vulnerabilities</h3>
+                    <h4>From Open Web Application Security Project</h4>
+                    <ol>
+                        <li>Injection such as SQL, OS, and LDAP injection.</li>
+                        <li>Broken Authentication and Session Management.</li>
+                        <li>Cross-Site Scripting (XSS).</li>
+                        <li>Insecure Direct Object References.</li>
+                        <li>Security Misconfiguration.</li>
+                        <li>Sensitive Data Exposure.</li>
+                        <li>Missing Function Level Access Control (access bypass).</li>
+                        <li>Cross-Site Request Forgery.</li>
+                        <li>Using Components with Known Vulnerabilities.</li>
+                        <li>Unvalidated Redirects and Forwards.</li>
+                    </ol>
+                </section>
+
 				<section data-markdown>
 					<script type="text/template">
-						## What are the most common contrib issues?
+						## What are the most common Drupal contrib issues?
 						  <img height="500"  src="assets/Drupal_Security_-_SA_Analysis_vuln_types_all_time.png" alt="Vulnerabilities by type all time" />
 					</script>
 				</section>
