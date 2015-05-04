@@ -45,16 +45,20 @@
 					<h1>Securing Your Drupal Site</h1>
 					<h3>Advice for site builders and coders</h3>
 					<p>
-						<small>Presented by <ul>
+						<small>Presented by
+                            <ul>
 							<li><a href="https://drupal.org/u/greggles">Greg Knaddison</a> / <a href="http://twitter.com/greggles">@greggles</a></li>
                             <li><a href="https://drupal.org/u/mlhess">Michael Hess</a> / <a href="http://twitter.com/mlh407">@mlh407</a></li>
-
+                            </ul>
                         </small>
 					</p>
 					<p>
 						<small>These slides: <a href="http://cardcorp.github.io/drupal-security-intro/">http://cardcorp.github.io/drupal-security-intro/</a></small>
 					</p>
-				</section>
+                    <aside class="notes">
+                        -- Start with Greg
+                    </aside>
+                </section>
 				<section>
 					<h2><a href="https://twitter.com/greggles">@greggles Knaddison</a></h2>
 					<div>
@@ -100,8 +104,11 @@
                         - Drupal Configuration
                         - Code
 
-                        ##*we will cover them all a little*
+                        ##*We will cover them all a little*
 					</script>
+                    <aside class="notes">
+                        -- After this Switch to Michael
+                    </aside>
 				</section>
                 <section data-background="assets/target.jpg">
                     <h1 style="color:white">Why</h1>
@@ -122,8 +129,10 @@
                 </section>
                 <section  data-background="assets/biggest-hacks.jpg">
                 </section>
-
-
+                <section>
+                    <h2>Stories for context</h2>
+                    <p>All details have been changed....</p>
+                </section>
                 <section>
                     <h2>The Tale of the Red Ribbon Hacker</h2>
                     <p>Our first tale is about a little online shoe store run by a kind woman named Myrtle.</p>
@@ -141,17 +150,11 @@
                 <section>
                     <h2>One Day …</h2>
                     <p class='fragment'> The date was March 11th, 2013 </p>
-
                     <p class='fragment'> Myrtle noticed that the shoe store was not receiving any money into its account. Yet, the order volume had not changed. </p>
-
                     <p class='fragment'> She called the credit card company. The company told her they had not seen any orders come through in the past 2 weeks. </p>
-
                     <p class='fragment'> That couldn’t be right.</p>
-
                     <p class='fragment'> She went online and placed an order. All seemed to work as it should.</p>
-
                     <p class='fragment'>Myrtle was so confused, Where was all the money?</p>
-
                 </section>
                 <section>
                     <h2>What happened</h2>
@@ -159,6 +162,9 @@
                     <p class='fragment'> There was a POST request on the page to change this URL by someone at the company's IP address.    </p>
                     <p class='fragment'> Someone had used a security vulnerability in Ubercart and added Javascript into a field.</p>
                     <p class='fragment'> Normally the Javascript would be escaped, but since the site was not patched for SA-CONTRIB-2013-020 - Ubercart - Cross site scripting (XSS), the Javascript executed!</p>
+                    <aside class="notes">
+                        -- Go back to Greg
+                    </aside>
                 </section>
 				<section data-markdown>
 					<script type="text/template">
@@ -193,6 +199,10 @@
 						<img height="500"  src="assets/filtering_text.png" alt="Filtering text" />
 					</a>
 				</section>
+                <section>
+                    <h2>Demo</h2>
+                    <p>Live Demo</p>
+                </section>
 				<section data-markdown>
 					<script type="text/template">
 						## What is Access Bypass?
@@ -209,7 +219,6 @@
 						- Entity access
 						- Field access
 						- Services & Ajax apis?
-						- In templates
 					</script>
 				</section>
 				<section data-markdown>
@@ -230,12 +239,10 @@
 						- menu definitions
 						- write automated tests
 					</script>
+                    <aside class="notes">
+                        -- Go back to Michael
+                    </aside>
 				</section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## XSS & Access bypass Demo
-                    </script>
-                </section>
                 <section>
                     <h2> Second Story</h2>
                     <p> Our second tale is about Harpers' LLC, a small web development company in upstate New York based out of a stately old house.</p>
@@ -336,6 +343,7 @@
                 <section>
                     <h2> If you find a security issue...</h2>
                     <p> Or think you find a security issue, report it to the team (security@drupal.org) </p>
+                    <p> Can also use the "Report a security vulnerability" link on all project pages</p>
                 </section>
                 <section>
                     <h2>Site builders and module authors </h2>
@@ -438,6 +446,9 @@
                             ## What are the most common issues?
                             <img height="500"  src="assets/Drupal_Security_-_SA_Analysis_vuln_types.png" alt="Vulnerabilities by type" />
                         </script>
+                        <aside class="notes">
+                            -- Go back to Greg
+                        </aside>
                     </section>
 
                
@@ -459,7 +470,7 @@
     $output = l($variables['name'] . $variables['extra'], $variables['link_path'], $variables['link_options']);
   }
   else {
-    $output = '<span' . drupal_attributes($variables['attributes_array']) . '>' . $variables['name'] . $variables['extra'] . '</span>';
+    $output = '<span>' . drupal_attributes($variables['attributes_array']) . '>' . $variables['name'] . $variables['extra'] . '</span>';
   }
   return $output;
 ```
