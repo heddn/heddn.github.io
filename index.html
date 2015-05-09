@@ -239,11 +239,6 @@
                     <script type="text/template">
                         ## Testing for CSRF
                         - $_GET, $_POST, no use of drupal_get_token
-                        - "verb" menu callbacks without token
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
                         ## Fixing CSRF?
                         - Use FAPI
                         - Send and validate tokens
@@ -255,10 +250,6 @@
 						## What is Access Bypass?
 						- User can see or do something
 						- That permissions/access should prevent
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
 						### Where do we enforce it?
 						- Menu 'access callback'
 						- <code>if(user_access('see something'));</code>
@@ -312,9 +303,7 @@
                     <p>On a gray and windy day at the old Harpers’ house, Jean pulled the access logs for the site.  </p>
                     <p> But she found only known and trusted IP addresses had accessed the site.</p>
                     <p>Jean had no idea what had happened, so she restored a backup.</p>
-                </section>
-                <section>
-                    <h2> 2 days latter, it happened again</h2>
+                    <p> 2 days latter, it happened again</p>
                     <p> Only computers inside of Harpers' office had accessed the site.</p>
                     <p> Jean ran a virus scan on the computers that had accessed the site.</p>
                     <p> The scan was clean.</p>
