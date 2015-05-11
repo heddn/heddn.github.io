@@ -1,19 +1,14 @@
 <!doctype html>
 <html lang="en">
-
 	<head>
 		<meta charset="utf-8">
-
 		<title>Securing Your Drupal Site: advice for site builders and coders</title>
 
 		<meta name="description" content="Broad introduction to Drupal Security">
 		<meta name="author" content="Greg Knaddison">
-
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
         <link rel="stylesheet" href="custom.css">
@@ -36,9 +31,7 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
-
 	<body>
-
 		<div class="reveal">
 			<div class="slides">
 				<section>
@@ -68,7 +61,7 @@
 							</a>
 						</div>
 						<ul style="float:left">
-							<li>Contributed to Drupal for 8+ years</li>
+							<li>Contributed to Drupal for 9+ years</li>
 							<li>Pretty interested in security</li>
 							<li>Wrote <a href="http://crackingdrupal.com">Cracking Drupal</a></li>
 							<li><a href="https://www.card.com">CARD.com</a> - mobile alternative to a bank</li>
@@ -122,7 +115,6 @@
                         <li>Unvalidated Redirects and Forwards.</li>
                     </ol>
                 </section>
-
                 <section data-markdown>
                     <script type="text/template">
                         ## What are the most common Drupal contrib issues?
@@ -137,9 +129,7 @@
                     <aside class="notes">
                         After this Switch to Michael
                     </aside>
-
                 </section>
-
                 <section data-background="assets/target.jpg">
                     <h1 style="color:white">Why</h1>
                     <div >
@@ -153,7 +143,6 @@
                             A single breach in 2010 reported 38 terabytes of data stolen.  That is 2X the size of the Library of Congress.
                         </p>
                     </div>
-
                 </section>
                 <section>
                     <h4>Everyone gets hacked...</h4>
@@ -169,25 +158,25 @@
                     <h2>The Tale of the Red Ribbon Hacker</h2>
                     <p>Our first tale is about a little online shoe store run by a kind woman named Myrtle.</p>
                     <p>From her little online store, she mails shoes around the world, and each shoe box comes tied up in a red ribbon like a box of candy.</p>
-                    <p>Because Myrtle is no dummy, her website takes customers’ orders and then redirects them to a third party for payments.
-                        This keeps her site PCI-compliant. And gives Myrtle more time to tie red ribbons into bows — she has nothing to worry about!</p>
+                    <p>Because Myrtle is efficient, her website takes customers’ orders and then redirects them to a third party for payments.
+                        This makes PCI-compliance easier. And gives Myrtle more time to tie red ribbons into bows — she has nothing to worry about!</p>
                 </section>
                 <section>
                     <h2>Background</h2>
                     <p>Myrtle’s Shoe Store website first launched on Nov. 15, 2012.</p>
-                    <p> The site receives about 3,000 orders per month — that’s a lot of ribbons!</p>
-                    <p> The dev shop that built the site did not provide support after the site went live. The shoe store also does not have a full-time web person on staff.</p>
-                    <p> On March 11th, 2013 </p>
-                    <p> Myrtle noticed that the shoe store was not receiving any money into its account. Yet, the order volume had not changed. She called the credit card company. The company told her they had not seen any orders come through in the past 2 weeks. </p>
-                    <p> She went online and placed an order. All seemed to work as it should.</p>
+                    <p>The site receives about 3,000 orders per month — that’s a lot of ribbons!</p>
+                    <p>The dev shop that built the site did not provide support after the site went live. The shoe store also does not have a full-time web person on staff.</p>
+                    <p>On March 11th, 2013...</p>
+                    <p>Myrtle noticed that the shoe store was not receiving any money into its account. Yet, the order volume had not changed. She called the credit card company. The company told her they had not seen any orders come through in the past 2 weeks.</p>
+                    <p>She went online and placed an order. All seemed to work as it should.</p>
                     <p>Myrtle was so confused, Where was all the money?</p>
                 </section>
                 <section>
                     <h2>What happened</h2>
                     <p>The shoe store’s payment gateway URL configuration was not pointing to its payment gateway.</p>
-                    <p class='fragment'> There was a POST request on the page to change this URL by someone at the company's IP address.    </p>
-                    <p class='fragment'> Someone had used a security vulnerability in Ubercart and added Javascript into a field.</p>
-                    <p class='fragment'> Normally the Javascript would be escaped, but since the site was not patched for <a href="https://www.drupal.org/node/1922418">SA-CONTRIB-2013-020 - Ubercart - Cross site scripting (XSS)</a>, the Javascript executed!</p>
+                    <p class='fragment'>There was a POST request on the page to change this URL by someone at the company's IP address.</p>
+                    <p class='fragment'>Someone had used a security vulnerability in Ubercart and added Javascript into a field.</p>
+                    <p class='fragment'>Normally the Javascript would be escaped, but since the site was not patched for <a href="https://www.drupal.org/node/1922418">SA-CONTRIB-2013-020 - Ubercart - Cross site scripting (XSS)</a>, the Javascript executed!</p>
                     <aside class="notes">
                       Go back to Greg
                     </aside>
@@ -278,7 +267,7 @@
 						- <code>$query->addTag('node_access');</code>
 						- menu definitions
 						- write automated tests
-					</script>
+                    </script>
                     <aside class="notes">
                        Go back to Michael
                     </aside>
@@ -320,9 +309,9 @@
                 </section>
                 <section>
                     <h2>Server Configuration</h2>
-                    <p> Do not allow a single webserver instance to access multiple sites. Configure privilege separation. </p>
-                    <p> Apache config is outside the scope of this presentation, but look into suhosin, suphp, php-fpm and mod-itk.</p>
-                    <p> Be careful of using shared hosting without proper configuration.</p>
+                    <p>Do not allow a single webserver instance to access multiple sites. Configure privilege separation.</p>
+                    <p>Apache config is outside the scope of this presentation, but look into suhosin, suphp, php-fpm and mod-itk.</p>
+                    <p>Be careful of using shared hosting without proper configuration.</p>
                     <p>Have defense in depth like firewalls: why was mysql available over the internet?</p>
                     <p>Don't bring a site back online after a compromise unless you understand how it was hacked, and how to prevent future compromises.</p>
                 </section>
@@ -348,7 +337,7 @@
                     <h4>Brushing your teeth is a best practice.</h4>
                     <p class="fragment">For security, you can't check a list and be done.</p>
                     <p class="fragment">You must keep working at it. It is a process, not a one-time task.</p>
-                    <p class="fragment"> Which is why I hope everyone brushes their teeth. </p>
+                    <p class="fragment"> Which is why I hope everyone brushes their teeth.</p>
                     <img class="fragment" src="assets/badmouth.jpg" width="60%">
                 </section>
 
@@ -365,9 +354,9 @@
                 <section>
                     <h2>Know Your Risk Level</h2>
                     <p>Blog vs. complex site. Your blog is likely to be compromised to send spam or to act in part of a bot net.</p>
-                    <p> Your complex site might be compromised for the data it has. </p>
-                    <p> Security is a balance.</p>
-                    <P> Is your site a target?</P>
+                    <p>Your complex site might be compromised for the data it has.</p>
+                    <p>Security is a balance.</p>
+                    <p>Is your site a target?</P>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
@@ -390,8 +379,8 @@
                 </section>
                 <section>
                     <h2> If you find a security issue...</h2>
-                    <p> Or think you find a security issue, report it to the team (security@drupal.org) </p>
-                    <p> Can also use the "Report a security vulnerability" link on all project pages</p>
+                    <p>Or think you find a security issue, report it to the team (security@drupal.org)</p>
+                    <p>Can also use the "Report a security vulnerability" link on all project pages</p>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
@@ -406,7 +395,7 @@
                 </section>
                 <section>
                     <h2>Site builders and module authors </h2>
-                    <p> Writing secure code: https://www.drupal.org/writing-secure-code</p>
+                    <p>Writing secure code: https://www.drupal.org/writing-secure-code</p>
                     <p>How to secure your site: https://www.drupal.org/security/secure-configuration</p>
                 </section>
                 <section>
@@ -417,12 +406,12 @@
                     <p class="fragment">  Every change you make might impact the security of your site. Therefore, security needs to be in your workflow.</p>
                     <p class="fragment">Use supported versions (Soon time to update Drupal 6)</p>
                     <p class="fragment"> Do not use insecure hosting.  Multiple sites on a single server often use a common account.</p>
-                    <p class="fragment"> Do not use Drupal Multi site, unless you have a deep understand of apache/nginx and file perms. </p>
+                    <p class="fragment"> Do not use Drupal Multi site, unless you have a deep understand of apache/nginx and file perms.</p>
                     <p class="fragment"><b>Take and verify backups.</b></p>
                 </section>
                     <section>
                         <h1>Keep Your Site Updated</h1>
-                        <p>Always make sure you update after a security release comes out. </p>
+                        <p>Always make sure you update after a security release comes out.</p>
                         <aside class="notes">
                             Go back to Greg
                         </aside>
@@ -529,7 +518,7 @@
 				<section>
 					<h2>Book on Security in Drupal</h2>
 					<a href="http://crackingdrupal.com/" target="_blank">
-						<img src="assets/cracking_drupal.png" alt="Filtering text" />
+						<img src="assets/cracking_drupal.png" alt="Cracking Drupal Book Cover" />
 					</a>
 				</section>
                 <section>
