@@ -87,15 +87,7 @@
                 </section>
 				<section>
                     <h2>Lots of things to cover</h2>
-                    <ul>
-                        <li>Why?</li>
-                        <li>Server environment</li>
-                        <li>Server config</li>
-                        <li>Personal practices</li>
-                        <li>Drupal Configuration</li>
-                        <li>Code </li>
-                    </ul>
-                    <p>We will cover them all a little</p>
+                    <p> Think of this presentation as an overview. </p>
 				</section>
                 <section cite="https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013">
                     <h3>Common Web Vulnerabilities</h3>
@@ -213,12 +205,14 @@
 				</section>
                 <section data-markdown>
                     <script type="text/template">
-                        ## Second Story
-                        - Site got a lot of spam reports, blacklisted
-                        - Searched log files and found requests from a specific IP
-                        - A memorial page allowed formatted text
-                        - Hid the format selector with css
-                        - But...
+                        <h2>Second Story</h2>
+                        <h4>Site got a lot of spam reports, blacklisted</h4>
+                        <ul>
+                        <li class="fragment">Searched log files and found requests from a specific IP</li>
+                        <li class="fragment">A memorial page allowed formatted text</li>
+                        <li class="fragment">Hid the format selector with css</li>
+                        <li class="fragment">But...</li>
+                      </ul>
                     </script>
                 </section>
 				<section data-markdown>
@@ -307,35 +301,33 @@
                     <p>Too big to cover well today.</p>
                     <p>Lots of resources and consultants.</p>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                     ## Drupal specific hosting
-                        - Can your hosting provider help you improve your security process?
-                        - [Drupal.org/hosts](https://www.drupal.org/hosts)
-                        - Tuned for Drupal security (and performance)
-                        - Code, DB, uploaded files, config
-                        - Managed security updates
-\                    </script>
+                <section>
+                     <h2>Drupal specific hosting</h2>
+                       <ul>
+                        <li>Can your hosting provider help you improve your security process?</li>
+                        <li><a href="http://www.drupal.org/hosts">Drupal Hosts</a></li>
+                        <li>Tuned for Drupal security (and performance)</li>
+                        <li>Code, DB, uploaded files, config</li>
+                        <li>Managed security updates</li>
+                       </ul>
                 </section>
 
                 <section>
                     <h4>Brushing your teeth is a best practice.</h4>
-                    <img src="assets/badmouth.jpg" width="60%">
+                    <img class="fragment" src="assets/badmouth.jpg" width="60%">
                     <aside class="notes">
                         For security, you can't check a list and be done.<br>
                         You must keep working at it. It is a process, not a one-time task.<br>
                         Which is why I hope everyone brushes their teeth.<br>
                     </aside>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Security is a process
-
-                        - Ongoing maintenance
-                        - Budget for security
-                        - Managed hosting
-                        - Drupal.org packaging infrastructure
-                    </script>
+                <section>
+                        <h2>Security is a process</h2>
+                        <ul>
+                          <li>Ongoing maintenance</li>
+                          <li>Budget for security</li>
+                          <li>Managed hosting</li>
+                        </ul>
                     </section>
                 <section>
                     <h2>Know Your Risk Level</h2>
@@ -344,27 +336,25 @@
                     <p>Security is a balance.</p>
                     <p>Is your site a target?</P>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Know your regulations  
-                        - PCI, HIPAA, SCADA, XYZ, PDQ
-                        - Be aware of your regulations
-                        - [Drupal PCI Compliance Report](http://drupalpcicompliance.org/)
-                        - Anyone work in HIPAA environment?
-                        - FedRAMP/FISMA Certification & Accreditation (C&A)?
-                        - Anyone work with Drupal in SCADA?
-                    </script>
+                <section>
+                        <h2>Know your regulations</h2>
+                         <ul>
+                          <li>PCI, HIPAA, SCADA, XYZ, PDQ</li>
+                          <li>Be aware of your regulations</li>
+                          <li><a href="http://drupalpcicompliance.org/">Drupal PCI Compliance Report</a></li>
+                          <li>Anyone work in HIPAA environment?</li>
+                          <li>FedRAMP/FISMA Certification & Accreditation (C&A)?</li>
+                          <li>Anyone work with Drupal in SCADA?</li>
+                         </ul>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Security process
-
-                        - [Drupal Security Team](https://drupal.org/security-team)
-                        - Educate the community on security best practices
-                        - [Security Advisory](https://drupal.org/security) for every security release
-                        - Keep Drupal code secure in core and contrib
-                        - New members welcome: https://security.drupal.org/join
-                    </script>
+                <section>
+                        <h2>Security process</h2>
+                            <ul>
+                              <li><a href="https://drupal.org/security-team">Drupal Security Team</a> </li>
+                              <li>Educate the community on security best practices</li>
+                              <li>Security Advisories <a href="https://drupal.org/security"> for every security release</a> </li>
+                              <li>Keep Drupal code secure in core and contrib</li>
+                            </ul>
                 </section>
                 <section>
                     <h2> Follow the Drupal Security Team</h2>
@@ -379,7 +369,7 @@
                     <p>Or think you find a security issue...</p>
                     <ol>
                         <li>Please use the "Report a security vulnerability" link on all project pages</li>
-                        <li>Or...via emailsecurity@drupal.org</li>
+                        <li>Or...via email security@drupal.org</li>
                     </ol>
                 </section>
                 <section>
@@ -389,32 +379,29 @@
                         Go back to Greg
                     </aside>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## General places for mistakes
-
-                        - Passwords, sessions
-                        - [Roles and permissions](https://drupal.org/node/120614)
-                        - Keep your site settings secure
-                        - Permissions - Double check
-                        - Text formats - XSS, PHP
-                        - PHP module
-                        - PHP execution in other modules
-                    </script>
+                <section>
+                      <h2>General places for mistakes</h2>
+                      <ul>
+                       <li>Passwords, sessions</li>
+                        <li><a href="https://drupal.org/node/120614">Roles and permissions</a>
+                        <li>Keep your site settings secure</li>
+                        <li>Permissions - Double check</li>
+                        <li>Text formats - XSS, PHP</li>
+                        <li>PHP module</li>
+                        <li>PHP execution in other modules</li>
+                      </ul>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Modules enhancing security
-
-                        1. [Security Review](https://drupal.org/project/security_review)
-                        2. [Paranoia](https://drupal.org/project/paranoia)
-                        3. Newcomer: [Password Strength](https://www.drupal.org/project/password_strength) - zxcvbn-based
-                        4. [Two Factor Authentication](https://drupal.org/project/tfa)
-                        5. [Permissions Lock](https://drupal.org/project/permissions_lock)
-                        6. [Hacked!](https://drupal.org/project/hacked)
-                        7. [Password policy](https://drupal.org/project/password_policy)
-
-                    </script>
+                <section>
+                        <h2>Modules enhancing security</h2>
+                          <ol>
+                            <li>Security Review (https://drupal.org/project/security_review)</li>
+                            <li>Paranoia (https://drupal.org/project/paranoia)</li>
+                            <li>Newcomer: Password Strength (https://www.drupal.org/project/password_strength) - zxcvbn-based  </li>
+                            <li>Two Factor Authentication (https://drupal.org/project/tfa)</li>
+                            <li>Permissions Lock (https://drupal.org/project/permissions_lock)</li>
+                            <li>Hacked! (https://drupal.org/project/hacked)</li>
+                            <li>Password policy (https://drupal.org/project/password_policy)</li>
+                          </ol>
                 </section>
 				<section data-markdown>
 					<script type="text/template">
