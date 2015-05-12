@@ -158,8 +158,7 @@
                     <h2>The Tale of the Red Ribbon Hacker</h2>
                     <p>Our first tale is about a little online shoe store run by a kind woman named Myrtle.</p>
                     <p>From her little online store, she mails shoes around the world, and each shoe box comes tied up in a red ribbon like a box of candy.</p>
-                    <p>Because Myrtle is efficient, her website takes customers’ orders and then redirects them to a third party for payments.
-                        This makes PCI-compliance easier. And gives Myrtle more time to tie red ribbons into bows — she has nothing to worry about!</p>
+                    <p>Because Myrtle is efficient, her website takes customers’ orders and then redirects them to a third party for payments. This makes PCI-compliance easier. And gives Myrtle more time to tie red ribbons into bows — she has nothing to worry about!</p>
                 </section>
                 <section>
                     <h2>Background</h2>
@@ -214,28 +213,6 @@
 						<img height="500"  src="assets/filtering_text.png" alt="Filtering text" />
 					</a>
 				</section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## What is CSRF?
-                        - path
-                        - does not confirm intent
-
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Testing for CSRF
-                        - $_GET, $_POST, no use of drupal_get_token
-                    </script>
-                </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## Fixing CSRF?
-                        - Use FAPI
-                        - Send and validate tokens
-                        - [Drupalscout.com csrf](http://www.drupalscout.com/tags/csrf)
-                    </script>
-                </section>
 				<section data-markdown>
 					<script type="text/template">
 						## What is Access Bypass?
@@ -309,11 +286,8 @@
                 </section>
                 <section>
                     <h2>Server Configuration</h2>
-                    <p>Do not allow a single webserver instance to access multiple sites. Configure privilege separation.</p>
-                    <p>Apache config is outside the scope of this presentation, but look into suhosin, suphp, php-fpm and mod-itk.</p>
-                    <p>Be careful of using shared hosting without proper configuration.</p>
-                    <p>Have defense in depth like firewalls: why was mysql available over the internet?</p>
-                    <p>Don't bring a site back online after a compromise unless you understand how it was hacked, and how to prevent future compromises.</p>
+                    <p>Too big to cover well today.</p>
+                    <p>Lots of resources and consultants.</p>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
@@ -326,24 +300,21 @@
                         - Code, DB, uploaded files, config
                         - Managed security updates
                         - Remote administration (Acquia)
-                        </script>
-                    </section>
-                 <section>
-                        <h2> Some best practices</h2>
-                        <h3 class="fragment">Brush your teeth!</h3>
-                  </section>
+                    </script>
+                </section>
 
                 <section>
                     <h4>Brushing your teeth is a best practice.</h4>
-                    <p class="fragment">For security, you can't check a list and be done.</p>
-                    <p class="fragment">You must keep working at it. It is a process, not a one-time task.</p>
-                    <p class="fragment"> Which is why I hope everyone brushes their teeth.</p>
-                    <img class="fragment" src="assets/badmouth.jpg" width="60%">
+                    <img src="assets/badmouth.jpg" width="60%">
+                    <aside class="notes">
+                        For security, you can't check a list and be done.<br>
+                        You must keep working at it. It is a process, not a one-time task.<br>
+                        Which is why I hope everyone brushes their teeth.<br>
+                    </aside>
                 </section>
-
                 <section data-markdown>
                     <script type="text/template">
-                        ## Security process
+                        ## Security is a process
 
                         - Ongoing maintenance
                         - Budget for security
@@ -369,6 +340,17 @@
                         - Anyone work with Drupal in SCADA?
                     </script>
                 </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Security process
+
+                        - [Drupal Security Team](https://drupal.org/security-team)
+                        - Educate the community on security best practices
+                        - [Security Advisory](https://drupal.org/security) for every security release
+                        - Keep Drupal code secure in core and contrib
+                        - New members welcome: https://security.drupal.org/join
+                    </script>
+                </section>
                 <section>
                     <h2> Follow the Drupal Security Team</h2>
                     <ul>
@@ -378,73 +360,46 @@
                     </ul>
                 </section>
                 <section>
-                    <h2> If you find a security issue...</h2>
-                    <p>Or think you find a security issue, report it to the team (security@drupal.org)</p>
-                    <p>Can also use the "Report a security vulnerability" link on all project pages</p>
+                    <h2>If you find a security issue...</h2>
+                    <p>Or think you find a security issue...</p>
+                    <ol>
+                        <li>Please use the "Report a security vulnerability" link on all project pages</li>
+                        <li>Or...via emailsecurity@drupal.org</li>
+                    </ol>
+                </section>
+                <section>
+                    <h1>Keep Your Site Updated</h1>
+                    <p>Always make sure you update after a security release comes out.</p>
+                    <aside class="notes">
+                        Go back to Greg
+                    </aside>
                 </section>
                 <section data-markdown>
                     <script type="text/template">
-                        ## Security process
+                        ## General places for mistakes
 
-                        - [Drupal Security Team](https://drupal.org/security-team)
-                        - Keep Drupal code secure in core and contrib
-                        - Educate the community on security best practices
-                        - [Security Advisory](https://drupal.org/security) for every security release
-                        - New members welcome: https://security.drupal.org/join
+                        - [Roles and permissions](https://drupal.org/node/120614)
+                        - Keep your site settings secure
+                        - Permissions
+                        - Text formats
+                        - PHP module
+                        - PHP execution in other modules
                     </script>
                 </section>
-                <section>
-                    <h2>Site builders and module authors </h2>
-                    <p>Writing secure code: https://www.drupal.org/writing-secure-code</p>
-                    <p>How to secure your site: https://www.drupal.org/security/secure-configuration</p>
-                </section>
-                <section>
-                    <h2>Easy things to do</h2>
-                    <p class="fragment">Only use encrypted protocols.</p>
-                    <p class="fragment">https/ftps/ssh/etc.</p>
-                    <p class="fragment">Require SSH keys</p>
-                    <p class="fragment">  Every change you make might impact the security of your site. Therefore, security needs to be in your workflow.</p>
-                    <p class="fragment">Use supported versions (Soon time to update Drupal 6)</p>
-                    <p class="fragment"> Do not use insecure hosting.  Multiple sites on a single server often use a common account.</p>
-                    <p class="fragment"> Do not use Drupal Multi site, unless you have a deep understand of apache/nginx and file perms.</p>
-                    <p class="fragment"><b>Take and verify backups.</b></p>
-                </section>
-                    <section>
-                        <h1>Keep Your Site Updated</h1>
-                        <p>Always make sure you update after a security release comes out.</p>
-                        <aside class="notes">
-                            Go back to Greg
-                        </aside>
-                    </section>
 
-                    <section data-markdown>
-                        <script type="text/template">
-                            ## General tips
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Modules enhancing security
 
-                            - [Roles and permissions](https://drupal.org/node/120614)
-                            - Keep your site settings secure
-                            - Permissions
-                            - Text formats
-                            - PHP module
-                            - PHP in other modules
-                        </script>
-                    </section>
-
-                    <section data-markdown>
-                        <script type="text/template">
-                            ## Modules enhancing security
-
-                            - [Paranoia](https://drupal.org/project/paranoia)
-                            - [Security Review](https://drupal.org/project/security_review)
-                            - [Permissions Lock](https://drupal.org/project/permissions_lock)
-                            - [Two Factor Authentication](https://drupal.org/project/tfa)
-                            - [Hacked!](https://drupal.org/project/hacked)
-                            - [Password policy](https://drupal.org/project/password_policy)
-                            - Newcomer: [Password Strength2](https://www.drupal.org/sandbox/coltrane/2292875) - zxcvbn-based
-                        </script>
-                    </section>
-
-               
+                        - [Paranoia](https://drupal.org/project/paranoia)
+                        - [Security Review](https://drupal.org/project/security_review)
+                        - [Permissions Lock](https://drupal.org/project/permissions_lock)
+                        - [Two Factor Authentication](https://drupal.org/project/tfa)
+                        - [Hacked!](https://drupal.org/project/hacked)
+                        - [Password policy](https://drupal.org/project/password_policy)
+                        - Newcomer: [Password Strength2](https://www.drupal.org/sandbox/coltrane/2292875) - zxcvbn-based
+                    </script>
+                </section>              
 				<section data-markdown>
 					<script type="text/template">
 						## Drupal 8
@@ -455,43 +410,10 @@
 					<script type="text/template">
 						## Drupal 8: Twig
 
-						Automatically sanitizes strings on output<sup>*</sup>
-
-```
-  # Drupal 7
-  if (isset($variables['link_path'])) {
-    $output = l($variables['name'] . $variables['extra'], $variables['link_path'], $variables['link_options']);
-  }
-  else {
-    $output = '<span>' . drupal_attributes($variables['attributes_array']) . '>' . $variables['name'] . $variables['extra'] . '</span>';
-  }
-  return $output;
-```
-```
-  # Drupal 8
-  {% if link_path -%}
-    <a{{ attributes }}>{{ name }}{{ extra }}</a>
-  {%- else -%}
-    <span{{ attributes }}>{{ name }}{{ extra }}</span>
-  {%- endif -%}
-```
-
+						- Automatically sanitizes strings on output<sup>*</sup>
 						<small style="float: right; margin-top: 4em;"><sup>*</sup> [https://drupal.org/node/1825952](https://drupal.org/node/1825952)</small>
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## Drupal 8: Twig
+                        - Removes PHP from templates
 
-						No PHP in templates
-
-```
-{% if link_path -%}
-  <a{{ attributes }}>{{ name }}{{ extra }}</a>
-{%- else -%}
-  <span{{ attributes }}>{{ name }}{{ extra }}</span>
-{%- endif -%}
-```
 					</script>
 				</section>
 				<section data-markdown>
@@ -516,13 +438,13 @@
 				</section>
 
 				<section>
-					<h2>Book on Security in Drupal</h2>
+					<h2>Book focused on Security in Drupal</h2>
 					<a href="http://crackingdrupal.com/" target="_blank">
 						<img src="assets/cracking_drupal.png" alt="Cracking Drupal Book Cover" />
 					</a>
 				</section>
                 <section>
-                    <h2> Questions</h2>
+                    <h2>Questions</h2>
                 </section>
 				<section>
 					<h2>References</h2>
@@ -539,6 +461,8 @@
 							<li><a href="http://www.crackingdrupal.com">Cracking Drupal</a></li>
 							<li><a href="http://www.drupalsecurityreport.org">http://www.drupalsecurityreport.org</a></li>
 							<li><a href="http://groups.drupal.org/security">http://groups.drupal.org/security</a></li>
+                            <li>Writing secure code: https://www.drupal.org/writing-secure-code</li>
+                            <li>How to secure your site: https://www.drupal.org/security/secure-configuration</li>
 						</ul>
 					</div>
 				</section>
