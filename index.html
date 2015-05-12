@@ -213,11 +213,25 @@
 						<img height="500"  src="assets/filtering_text.png" alt="Filtering text" />
 					</a>
 				</section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Second Story
+                        - Site got a lot of spam reports, blacklisted
+                        - Searched log files and found requests from a specific IP
+                        - A memorial page allowed formatted text
+                        - Hid the format selector with css
+                        - But...
+                    </script>
+                </section>
 				<section data-markdown>
 					<script type="text/template">
 						## What is Access Bypass?
-						- User can see or do something
+						- User can **see** or **do** something
 						- That permissions/access should prevent
+                    </script>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
 						### Where do we enforce it?
 						- Menu 'access callback'
 						- <code>if(user_access('see something'));</code>
@@ -250,7 +264,7 @@
                     </aside>
 				</section>
                 <section>
-                    <h2> Second Story</h2>
+                    <h2>Third Story</h2>
                     <p>Our second tale is about Harpers' LLC, a small web development company in upstate New York based out of a stately old house.</p>
                     <p>Harpers had just started work on a new site two days before. The site was provisioned at a brand-new domain. It was in maintenance mode.</p>
                     <p>The site was set up with a newly ordered domain name.</p>
@@ -397,9 +411,40 @@
                         - [Two Factor Authentication](https://drupal.org/project/tfa)
                         - [Hacked!](https://drupal.org/project/hacked)
                         - [Password policy](https://drupal.org/project/password_policy)
-                        - Newcomer: [Password Strength2](https://www.drupal.org/sandbox/coltrane/2292875) - zxcvbn-based
+                        - Newcomer: [Password Strength](https://www.drupal.org/project/password_strength) - zxcvbn-based
                     </script>
-                </section>              
+                </section>
+				<section data-markdown>
+					<script type="text/template">
+						## Two Factor Auth ([TFA](https://drupal.org/project/tfa))
+						<img src="assets/username_password.png" alt="Username + Password" />
+                    </script>
+                </section>
+				<section data-markdown>
+					<script type="text/template">
+						## Two Factor Auth ([TFA](https://drupal.org/project/tfa))
+						<img src="assets/2nd_factor.png" alt="Entering 2nd Factor" />
+                    </script>
+                </section>
+				<section data-markdown>
+					<script type="text/template">
+						## [Password Strength](https://www.drupal.org/project/password_strength)
+						<img src="assets/weak_password.png" alt="Entering 2nd Factor" />
+                    </script>
+                </section>
+                <section data-markdown>
+					<script type="text/template">
+						## [Password Strength](https://www.drupal.org/project/password_strength)
+						<img src="assets/good_password.png" alt="Entering 2nd Factor" />
+                    </script>
+                </section>
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 6
+						## [Extended Support: Drupal 8.0.0 + 3 months](https://www.drupal.org/d6-lts-support)
+					</script>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						## Drupal 8
@@ -409,11 +454,8 @@
 				<section data-markdown>
 					<script type="text/template">
 						## Drupal 8: Twig
-
-						- Automatically sanitizes strings on output<sup>*</sup>
-						<small style="float: right; margin-top: 4em;"><sup>*</sup> [https://drupal.org/node/1825952](https://drupal.org/node/1825952)</small>
-                        - Removes PHP from templates
-
+						- Removes php from templates
+						- [Automatically sanitizes strings on output](https://www.drupal.org/node/1825952)
 					</script>
 				</section>
 				<section data-markdown>
