@@ -267,11 +267,13 @@
                     <h2>Third Story</h2>
                     <p>Our second tale is about Harpers' LLC, a small web development company in upstate New York based out of a stately old house.</p>
                     <p>Harpers had just started work on a new site two days before. The site was provisioned at a brand-new domain. It was in maintenance mode.</p>
-                    <p>The site was set up with a newly ordered domain name.</p>
-                    <p>The site’s modules and core install were all up to date.</p>
-                    <p>The site was a simple brochure-type site with only one admin account.</p>
-                    <p>The site was set up on a new development server, dedicated just to Harpers’ dev sites.</p>
-                    <p>Despite all this, the site was hacked. But how?</p>
+                    <p class="fragment">Despite all this, the site was hacked. But how?</p>
+                    <aside class="notes">
+                        <p>The site was set up with a newly ordered domain name.</p>
+                        <p>The site’s modules and core install were all up to date.</p>
+                        <p>The site was a simple brochure-type site with only one admin account.</p>
+                        <p>The site was set up on a new development server, dedicated just to Harpers’ dev sites.</p>
+                    </aside>
                 </section>
                 <section>
                     <h2>How It Began…</h2>
@@ -283,20 +285,24 @@
                     <h2>Call for help</h2>
                     <p>Jeremy called Jean, in-house IT person, who began looking at logs to see how an up-to-date Drupal site got compromised.</p>
                     <p>On a gray and windy day at the old Harpers’ house, Jean pulled the access logs for the site.</p>
-                    <p>But she found only known and trusted IP addresses had accessed the site.</p>
-                    <p>Jean had no idea what had happened, so she restored a backup.</p>
-                    <p>2 days latter, it happened again</p>
-                    <p>Only computers inside of Harpers' office had accessed the site.</p>
-                    <p>Jean ran a virus scan on the computers that had accessed the site.</p>
-                    <p>The scan was clean.</p>
+                    <p class="fragment">Jean had no idea what had happened, so she restored a backup.</p>
+                    <p class="fragment">2 days latter, it happened again</p>
+                    <aside class="notes">
+                        <p>But she found only known and trusted IP addresses had accessed the site.</p>
+                        <p>Only computers inside of Harpers' office had accessed the site.</p>
+                        <p>Jean ran a virus scan on the computers that had accessed the site.</p>
+                        <p>The scan was clean.</p>
+                    </aside>
                 </section>
                 <section>
                     <h2>What happened?</h2>
                     <p>By default Apache on most OS's will run as a single user.</p>
                     <p>That user has access to READ all the files for all sites on the system.</p>
                     <p>Someone had compromised another site on the server.</p>
-                    <p>Using that site, they were able to read settings.php and connect to the new Drupal site's database.</p>
-                    <p>They were able to inject spam by updating the table directly. The attacker searched the entire file system for settings.php and then ran commands to update the database on any site they found.</p>
+                    <aside class="notes">
+                        <p>Using that site, they were able to read settings.php and connect to the new Drupal site's database.</p>
+                        <p>They were able to inject spam by updating the table directly. The attacker searched the entire file system for settings.php and then ran commands to update the database on any site they found.</p>
+                    </aside>
                 </section>
                 <section>
                     <h2>Server Configuration</h2>
@@ -307,14 +313,11 @@
                     <script type="text/template">
                      ## Drupal specific hosting
                         - Can your hosting provider help you improve your security process?
-                        - [Pantheon](https://www.getpantheon.com/)
-                        - [Acquia Cloud](http://www.acquia.com/products-services/acquia-cloud) & [Insight](https://insight.acquia.com)
                         - [Drupal.org/hosts](https://www.drupal.org/hosts)
                         - Tuned for Drupal security (and performance)
                         - Code, DB, uploaded files, config
                         - Managed security updates
-                        - Remote administration (Acquia)
-                    </script>
+\                    </script>
                 </section>
 
                 <section>
