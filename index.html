@@ -9,8 +9,8 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
         <link rel="stylesheet" href="custom.css">
 
 		<!-- For syntax highlighting -->
@@ -85,19 +85,17 @@
                         </ul>
                     </div>
                 </section>
-				<section data-markdown>
-					<script type="text/template">
-                        ## Lots of things to cover
-                        - Why?
-                        - Server environment
-                        - Server config
-                        - Personal practices
-                        - Drupal Configuration
-                        - Code
-
-
-                        <br>*We will cover them all a little*
-					</script>
+				<section>
+                    <h2>Lots of things to cover</h2>
+                    <ul>
+                        <li>Why?</li>
+                        <li>Server environment</li>
+                        <li>Server config</li>
+                        <li>Personal practices</li>
+                        <li>Drupal Configuration</li>
+                        <li>Code </li>
+                    </ul>
+                    <p>We will cover them all a little</p>
 				</section>
                 <section cite="https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013">
                     <h3>Common Web Vulnerabilities</h3>
@@ -115,17 +113,13 @@
                         <li>Unvalidated Redirects and Forwards.</li>
                     </ol>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## What are the most common Drupal contrib issues?
+                <section>
+                        <h2>What are the most common Drupal contrib issues?</h2>
                         <img height="500"  src="assets/Drupal_Security_-_SA_Analysis_vuln_types_all_time.png" alt="Vulnerabilities by type all time" />
-                    </script>
                 </section>
-                <section data-markdown>
-                    <script type="text/template">
-                        ## What are the most common issues?
+                <section>
+                        <h2>What are the most common issues?</h2>
                         <img height="500"  src="assets/Drupal_Security_-_SA_Analysis_vuln_types.png" alt="Vulnerabilities by type" />
-                    </script>
                     <aside class="notes">
                         After this Switch to Michael
                     </aside>
@@ -158,17 +152,21 @@
                     <h2>The Tale of the Red Ribbon Hacker</h2>
                     <p>Our first tale is about a little online shoe store run by a kind woman named Myrtle.</p>
                     <p>From her little online store, she mails shoes around the world, and each shoe box comes tied up in a red ribbon like a box of candy.</p>
+                    <aside class="notes">
                     <p>Because Myrtle is efficient, her website takes customers’ orders and then redirects them to a third party for payments. This makes PCI-compliance easier. And gives Myrtle more time to tie red ribbons into bows — she has nothing to worry about!</p>
+                    </aside>
                 </section>
                 <section>
                     <h2>Background</h2>
                     <p>Myrtle’s Shoe Store website first launched on Nov. 15, 2012.</p>
                     <p>The site receives about 3,000 orders per month — that’s a lot of ribbons!</p>
-                    <p>The dev shop that built the site did not provide support after the site went live. The shoe store also does not have a full-time web person on staff.</p>
                     <p>On March 11th, 2013...</p>
-                    <p>Myrtle noticed that the shoe store was not receiving any money into its account. Yet, the order volume had not changed. She called the credit card company. The company told her they had not seen any orders come through in the past 2 weeks.</p>
+                    <p>Myrtle noticed that the shoe store was not receiving any money into its account.</p>
                     <p>She went online and placed an order. All seemed to work as it should.</p>
                     <p>Myrtle was so confused, Where was all the money?</p>
+                    <aside class="notes">
+                        <p>The dev shop that built the site did not provide support after the site went live. The shoe store also does not have a full-time web person on staff.</p>
+                    </aside>
                 </section>
                 <section>
                     <h2>What happened</h2>
@@ -516,7 +514,7 @@
 			</div>
 		</div>
 		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+		<script src="js/reveal.js"></script>
 		<script>
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
@@ -525,6 +523,13 @@
 				progress: true,
 				history: true,
 				center: true,
+                width: 1290,
+                height: 800,
+                // Factor of the display size that should remain empty around the content
+                margin: 0.1,
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.9,
+                maxScale: 1.5,
 
 				theme: Reveal.getQueryHash().theme || 'sky', // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
