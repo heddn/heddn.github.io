@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Building Secure Drupal Websites</title>
+
+    <meta name="description" content="Follow best practices and buidling secure Drupal sites is easy.">
+    <meta name="author" content="Lucas Hedding">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+    <link rel="stylesheet" href="custom.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = 'css/print/pdf.css';
+            document.getElementsByTagName('head')[0].appendChild(link);
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section>
+            <h1>Building Secure Drupal Websites</h1>
+
+            <h3>Follow best practices and buidling secure Drupal sites is easy</h3>
+
+            <p>
+                <small>Presented by
+                    <ul>
+                        <li>
+                            <a href="https://drupal.org/u/heddn">heddn (Lucas Hedding)</a> /
+                            <a href="http://twitter.com/lucashedding">@lucashedding</a>
+                        </li>
+                    </ul>
+                </small>
+            </p>
+            <p>
+                <small>These slides:
+                    <a href="http://heddn.github.io/drupal-security">http://heddn.github.io/drupal-security</a>
+                </small>
+            </p>
+            <aside class="notes">
+                -- Start with Greg
+            </aside>
+        </section>
+        <section>
+            <h2><a href="https://twitter.com/greggles">@greggles Knaddison</a>
+            </h2>
+
+            <div>
+                <div style="float: right; width:250px;">
+                    <a href="https://www.card.com/" target="_blank">
+                        <img src="assets/cardLogo-vertical-rgb.png" alt="CARD.com logo"/>
+                    </a>
+                </div>
+                <ul style="float:left">
+                    <li>Contributed to Drupal for 9+ years</li>
+                    <li>Pretty interested in security</li>
+                    <li>Wrote
+                        <a href="http://crackingdrupal.com">Cracking Drupal</a>
+                    </li>
+                    <li>
+                        <a href="https://www.card.com">CARD.com</a> - mobile alternative to a bank
+                    </li>
+                    <li>
+                        <a href="https://www.card.com/careers">https://www.card.com/careers</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2><a href="https://twitter.com/mlh407">Michael Hess </a></h2>
+
+            <div>
+                <div style="float:right; width:250px;">
+                    <a href="http://www.umich.edu" target="_blank">
+                        <img src="assets/michigan-logo.jpg" alt="Michigan Logo"/>
+                    </a>
+                </div>
+                <ul style="float:left">
+                    <li>Contributed to Drupal for 6+ years</li>
+                    <li>Hosts 900 sites at the University of Michigan</li>
+                    <li>Works on large scale health care projects.</li>
+                    <li>Teaches 3 classes on Content management platforms</li>
+                </ul>
+            </div>
+        </section>
+        <section>
+            <h2>Lots of things to cover</h2>
+
+            <p> Think of this presentation as an overview. </p>
+        </section>
+        <section cite="https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013">
+            <h3>Common Web Vulnerabilities</h3>
+            <h4>From Open Web Application Security Project</h4>
+            <ol>
+                <li>Injection such as SQL, OS, and LDAP injection.</li>
+                <li>Broken Authentication and Session Management.</li>
+                <li>Cross-Site Scripting (XSS).</li>
+                <li>Insecure Direct Object References.</li>
+                <li>Security Misconfiguration.</li>
+                <li>Sensitive Data Exposure.</li>
+                <li>Missing Function Level Access Control (access bypass).</li>
+                <li>Cross-Site Request Forgery.</li>
+                <li>Using Components with Known Vulnerabilities.</li>
+                <li>Unvalidated Redirects and Forwards.</li>
+            </ol>
+        </section>
+        <section>
+            <h2>What are the most common Drupal contrib issues?</h2>
+            <img height="500" src="assets/Drupal_Security_-_SA_Analysis_vuln_types_all_time.png" alt="Vulnerabilities by type all time"/>
+        </section>
+        <section>
+            <h2>What are the most common issues?</h2>
+            <img height="500" src="assets/Drupal_Security_-_SA_Analysis_vuln_types.png" alt="Vulnerabilities by type"/>
+            <aside class="notes">
+                After this Switch to Michael
+            </aside>
+        </section>
+        <section data-background="assets/target.jpg">
+            <h1 style="color:white">Why</h1>
+
+            <div>
+                <p style="color:white">
+                    The FBI notes that cyber attacks are eclipsing terrorism as the primary threat facing the US.
+                </p>
+
+                <p style="color:white">
+                    75% of small and medium business surveyed reported cyber attacks.
+                </p>
+
+                <p style="color:white">
+                    A single breach in 2010 reported 38 terabytes of data stolen. That is 2X the size of the Library of Congress.
+                </p>
+            </div>
+        </section>
+        <section>
+            <h4>Everyone gets hacked...</h4>
+            <h4>so it must be trendy.</h4>
+        </section>
+        <section data-background="assets/biggest-hacks.jpg">
+        </section>
+        <section>
+            <h2>Stories for context</h2>
+
+            <p>All details have been changed....</p>
+        </section>
+        <section>
+            <h2>The Tale of the Red Ribbon Hacker</h2>
+
+            <p>Our first tale is about a little online shoe store run by a kind woman named Myrtle.</p>
+
+            <p>From her little online store, she mails shoes around the world, and each shoe box comes tied up in a red ribbon like a box of candy.</p>
+            <aside class="notes">
+                <p>Because Myrtle is efficient, her website takes customers’ orders and then redirects them to a third party for payments. This makes PCI-compliance easier. And gives Myrtle more time to tie red ribbons into bows — she has nothing to worry about!</p>
+            </aside>
+        </section>
+        <section>
+            <h2>Background</h2>
+
+            <p>Myrtle’s Shoe Store website first launched on Nov. 15, 2012.</p>
+
+            <p>The site receives about 3,000 orders per month — that’s a lot of ribbons!</p>
+
+            <p>On March 11th, 2013...</p>
+
+            <p>Myrtle noticed that the shoe store was not receiving any money into its account.</p>
+
+            <p>She went online and placed an order. All seemed to work as it should.</p>
+
+            <p>Myrtle was so confused, Where was all the money?</p>
+            <aside class="notes">
+                <p>The dev shop that built the site did not provide support after the site went live. The shoe store also does not have a full-time web person on staff.</p>
+            </aside>
+        </section>
+        <section>
+            <h2>What happened</h2>
+
+            <p>The shoe store’s payment gateway URL configuration was not pointing to its payment gateway.</p>
+
+            <p class='fragment'>There was a POST request on the page to change this URL by someone at the company's IP address.</p>
+
+            <p class='fragment'>Someone had used a security vulnerability in Ubercart and added Javascript into a field.</p>
+
+            <p class='fragment'>Normally the Javascript would be escaped, but since the site was not patched for
+                <a href="https://www.drupal.org/node/1922418">SA-CONTRIB-2013-020 - Ubercart - Cross site scripting (XSS)</a>, the Javascript executed!
+            </p>
+            <aside class="notes">
+                Go back to Greg
+            </aside>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## What is XSS?
+                - Cross Site Scripting
+                - Code in the browser
+                - Making requests
+                - Parsing responses
+                - Javascript, Flash, Java, etc.
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Testing for XSS
+                - &lt;script&gt;alert('title');&lt;/script&gt;
+                - &lt;img src="a" onerror="alert('title');"&gt;
+                - Catches 90%
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Fixing XSS?
+                - Filter text
+                - On output to browser
+                - As late as reasonable
+                - Some API filters by default where reasonable
+            </script>
+        </section>
+        <section>
+            <h2>Precautions against XSS</h2>
+            <a href="http://drupalscout.com/knowledge-base/drupal-text-filtering-cheat-sheet-drupal-6" target="_blank">
+                <img height="500" src="assets/filtering_text.png" alt="Filtering text"/>
+            </a>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                <h2>Second Story</h2>
+                <h4>Site got a lot of spam reports, blacklisted</h4>
+                <ul>
+                    <li class="fragment">Searched log files and found requests from a specific IP</li>
+                    <li class="fragment">A memorial page allowed formatted text</li>
+                    <li class="fragment">Hid the format selector with css</li>
+                    <li class="fragment">But...</li>
+                </ul>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## What is Access Bypass?
+                - User can **see** or **do** something
+                - That permissions/access should prevent
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ### Where do we enforce it?
+                - Menu 'access callback'
+                - <code>if(user_access('see something'));</code>
+                - Node access system
+                - Entity access
+                - Field access
+                - Services & Ajax apis?
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Testing for Access Bypass
+                - Visit node/nid etc.
+                - Visit anything/%node
+                - Use behat
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Fixing Access Bypass?
+                - <code>user_access</code> for permissions
+                - <code>node_access</code>
+                - <code>entity_access</code>
+                - <code>$query->addTag('node_access');</code>
+                - menu definitions
+                - write automated tests
+            </script>
+            <aside class="notes">
+                Go back to Michael
+            </aside>
+        </section>
+        <section>
+            <h2>Third Story</h2>
+
+            <p>Our second tale is about Harpers' LLC, a small web development company in upstate New York based out of a stately old house.</p>
+
+            <p>Harpers had just started work on a new site two days before. The site was provisioned at a brand-new domain. It was in maintenance mode.</p>
+
+            <p class="fragment">Despite all this, the site was hacked. But how?</p>
+            <aside class="notes">
+                <p>The site was set up with a newly ordered domain name.</p>
+
+                <p>The site’s modules and core install were all up to date.</p>
+
+                <p>The site was a simple brochure-type site with only one admin account.</p>
+
+                <p>The site was set up on a new development server, dedicated just to Harpers’ dev sites.</p>
+            </aside>
+        </section>
+        <section>
+            <h2>How It Began…</h2>
+
+            <p class="fragment">On the third day of developing the site, Jeremy, the content manager, was going to set up the content types.</p>
+
+            <p class="fragment"> He stopped in horror. The site had viagra spam all over the front page.</p>
+
+            <p class="fragment">Jeremy was not happy.</p>
+        </section>
+        <section>
+            <h2>Call for help</h2>
+
+            <p>Jeremy called Jean, in-house IT person, who began looking at logs to see how an up-to-date Drupal site got compromised.</p>
+
+            <p>On a gray and windy day at the old Harpers’ house, Jean pulled the access logs for the site.</p>
+
+            <p class="fragment">Jean had no idea what had happened, so she restored a backup.</p>
+
+            <p class="fragment">2 days latter, it happened again</p>
+            <aside class="notes">
+                <p>But she found only known and trusted IP addresses had accessed the site.</p>
+
+                <p>Only computers inside of Harpers' office had accessed the site.</p>
+
+                <p>Jean ran a virus scan on the computers that had accessed the site.</p>
+
+                <p>The scan was clean.</p>
+            </aside>
+        </section>
+        <section>
+            <h2>What happened?</h2>
+
+            <p>By default Apache on most OS's will run as a single user.</p>
+
+            <p>That user has access to READ all the files for all sites on the system.</p>
+
+            <p>Someone had compromised another site on the server.</p>
+            <aside class="notes">
+                <p>Using that site, they were able to read settings.php and connect to the new Drupal site's database.</p>
+
+                <p>They were able to inject spam by updating the table directly. The attacker searched the entire file system for settings.php and then ran commands to update the database on any site they found.</p>
+            </aside>
+        </section>
+        <section>
+            <h2>Server Configuration</h2>
+
+            <p>Too big to cover well today.</p>
+
+            <p>Lots of resources and consultants.</p>
+        </section>
+        <section>
+            <h2>Drupal specific hosting</h2>
+            <ul>
+                <li>Can your hosting provider help you improve your security process?</li>
+                <li><a href="http://www.drupal.org/hosts">Drupal Hosts</a></li>
+                <li>Tuned for Drupal security (and performance)</li>
+                <li>Code, DB, uploaded files, config</li>
+                <li>Managed security updates</li>
+            </ul>
+        </section>
+
+        <section>
+            <h4>Brushing your teeth is a best practice.</h4>
+            <img class="fragment" src="assets/badmouth.jpg" width="60%">
+            <aside class="notes">
+                For security, you can't check a list and be done.<br>
+                You must keep working at it. It is a process, not a one-time task.<br>
+                Which is why I hope everyone brushes their teeth.<br>
+            </aside>
+        </section>
+        <section>
+            <h2>Security is a process</h2>
+            <ul>
+                <li>Ongoing maintenance</li>
+                <li>Budget for security</li>
+                <li>Managed hosting</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Know Your Risk Level</h2>
+
+            <p>Blog vs. complex site. Your blog is likely to be compromised to send spam or to act in part of a bot net.</p>
+
+            <p>Your complex site might be compromised for the data it has.</p>
+
+            <p>Security is a balance.</p>
+
+            <p>Is your site a target?</P>
+        </section>
+        <section>
+            <h2>Know your regulations</h2>
+            <ul>
+                <li>PCI, HIPAA, SCADA, XYZ, PDQ</li>
+                <li>Be aware of your regulations</li>
+                <li>
+                    <a href="http://drupalpcicompliance.org/">Drupal PCI Compliance Report</a>
+                </li>
+                <li>Anyone work in HIPAA environment?</li>
+                <li>FedRAMP/FISMA Certification & Accreditation (C&A)?</li>
+                <li>Anyone work with Drupal in SCADA?</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Security process</h2>
+            <ul>
+                <li>
+                    <a href="https://drupal.org/security-team">Drupal Security Team</a>
+                </li>
+                <li>Educate the community on security best practices</li>
+                <li>Security Advisories
+                    <a href="https://drupal.org/security"> for every security release</a>
+                </li>
+                <li>Keep Drupal code secure in core and contrib</li>
+            </ul>
+        </section>
+        <section>
+            <h2> Follow the Drupal Security Team</h2>
+            <ul>
+                <li>On Twitter (twitter.com/drupalsecurity)</li>
+                <li>Via email (on your drupal.org user edit page under newsletters)</li>
+                <li>Via Web (drupal.org/security and drupal.org/security/contrib)</li>
+            </ul>
+        </section>
+        <section>
+            <h2>If you find a security issue...</h2>
+
+            <p>Or think you find a security issue...</p>
+            <ol>
+                <li>Please use the "Report a security vulnerability" link on all project pages</li>
+                <li>Or...via email security@drupal.org</li>
+            </ol>
+        </section>
+        <section>
+            <h1>Keep Your Site Updated</h1>
+
+            <p>Always make sure you update after a security release comes out.</p>
+            <aside class="notes">
+                Go back to Greg
+            </aside>
+        </section>
+        <section>
+            <h2>General places for mistakes</h2>
+            <ul>
+                <li>Passwords, sessions</li>
+                <li>
+                    <a href="https://drupal.org/node/120614">Roles and permissions</a>
+                <li>Keep your site settings secure</li>
+                <li>Permissions - Double check</li>
+                <li>Text formats - XSS, PHP</li>
+                <li>PHP module</li>
+                <li>PHP execution in other modules</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Modules enhancing security</h2>
+            <ol>
+                <li>Security Review (https://drupal.org/project/security_review)</li>
+                <li>Paranoia (https://drupal.org/project/paranoia)</li>
+                <li>Newcomer: Password Strength (https://www.drupal.org/project/password_strength) - zxcvbn-based</li>
+                <li>Two Factor Authentication (https://drupal.org/project/tfa)</li>
+                <li>Permissions Lock (https://drupal.org/project/permissions_lock)</li>
+                <li>Hacked! (https://drupal.org/project/hacked)</li>
+                <li>Password policy (https://drupal.org/project/password_policy)</li>
+                <li>XSS Tester (https://www.drupal.org/sandbox/matthew.donadio/2319347)</li>
+                <li>Coder (https://www.drupal.org/project/coder)</li>
+            </ol>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Two Factor Auth ([TFA](https://drupal.org/project/tfa))
+                <img src="assets/username_password.png" alt="Username + Password"/>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Two Factor Auth ([TFA](https://drupal.org/project/tfa))
+                <img src="assets/2nd_factor.png" alt="Entering 2nd Factor"/>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## [Password Strength](https://www.drupal.org/project/password_strength)
+                <img src="assets/weak_password.png" alt="Entering 2nd Factor"/>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## [Password Strength](https://www.drupal.org/project/password_strength)
+                <img src="assets/good_password.png" alt="Entering 2nd Factor"/>
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Drupal 6: Extended Support
+                ## [Drupal 8.0.0 + 3 months](https://www.drupal.org/d6-lts-support)
+            </script>
+        </section>
+
+        <section data-markdown>
+            <script type="text/template">
+                ## Drupal 8
+                ## Security improvements
+            </script>
+            <aside class="notes">
+                Drupal 8 is not ready for production in general.
+                There are several security issues.
+            </aside>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Drupal 8: Twig
+                - Removes php from templates
+                - [Automatically sanitizes strings on output](https://www.drupal.org/node/1825952)
+            </script>
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Drupal 8: WYSIWYG in core
+                - Streamlined filter mechanism (server and client side)
+                - No more full HTML as last resort
+
+                ![alt](assets/ckeditor_config.png)
+                ![alt](assets/allowed_html_tags.png)
+            </script>
+
+        </section>
+        <section data-markdown>
+            <script type="text/template">
+                ## Drupal 8: PHP
+
+                Removed PHP module
+
+                ![alt](assets/php_module_162.png)
+
+                ![alt](assets/php_module_171.png)
+            </script>
+        </section>
+
+        <section>
+            <h2>Book focused on Security in Drupal</h2>
+            <a href="http://crackingdrupal.com/" target="_blank">
+                <img src="assets/cracking_drupal.png" alt="Cracking Drupal Book Cover"/>
+            </a>
+        </section>
+        <section>
+            <h2>Questions</h2>
+        </section>
+        <section>
+            <h2>References</h2>
+
+            <div>
+                <div style="float: right;">
+                    <a href="http://definitivedrupal.org/" target="_blank">
+                        <img src="assets/dgd7-cover.jpg" alt="DGD7 cover"/>
+                    </a>
+                </div>
+                <ul style="float: left;">
+                    <li>DGD7 chapter 6 (with thanks to Stéphane Corlosquet)</li>
+                    <li>
+                        <a href="http://drupal.org/security-team">http://drupal.org/security-team</a>
+                    </li>
+                    <li>
+                        <a href="http://drupalpcicompliance.org/">Drupal PCI Compliance Report</a>
+                    </li>
+                    <li>
+                        <a href="http://www.crackingdrupal.com">Cracking Drupal</a>
+                    </li>
+                    <li>
+                        <a href="http://www.drupalsecurityreport.org">http://www.drupalsecurityreport.org</a>
+                    </li>
+                    <li>
+                        <a href="http://groups.drupal.org/security">http://groups.drupal.org/security</a>
+                    </li>
+                    <li>
+                        <a href="https://www.drupal.org/writing-secure-code">Writing secure code</a>
+                    </li>
+                    <li>
+                        <a href="https://www.drupal.org/security/secure-configuration">How to secure your site</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- The end -->
+    </div>
+</div>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+<script>
+    // Full list of configuration options available here:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        width: 1290,
+        height: 800,
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.3,
+        maxScale: 1.5,
+
+        theme: Reveal.getQueryHash().theme || 'sky', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function () {
+                    return !!document.body.classList;
+                }
+            },
+            {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function () {
+                    return !!document.body.classList;
+                }
+            }
+        ]
+    });
+
+</script>
+</body>
+</html>
