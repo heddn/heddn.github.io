@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <title>Building Secure Drupal Websites</title>
 
-    <meta name="description" content="Follow best practices and buidling secure Drupal sites is easy.">
+    <meta name="description" content="Follow best practices and building secure Drupal sites is easy.">
     <meta name="author" content="Lucas Hedding">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/sky.css" id="theme">
+    <link rel="stylesheet" href="css/theme/serif.css" id="theme">
     <link rel="stylesheet" href="custom.css">
 
     <!-- For syntax highlighting -->
@@ -37,13 +37,13 @@
         <section>
             <h1>Building Secure Drupal Websites</h1>
 
-            <h3>Follow best practices and buidling secure Drupal sites is easy</h3>
+            <h3>Follow best practices and build secure Drupal sites</h3>
 
             <p>
                 <small>Presented by
                     <ul>
                         <li>
-                            <a href="https://drupal.org/u/heddn">heddn (Lucas Hedding)</a> /
+                            <a href="https://drupal.org/u/heddn">heddn</a> /
                             <a href="http://twitter.com/lucashedding">@lucashedding</a>
                         </li>
                     </ul>
@@ -51,52 +51,34 @@
             </p>
             <p>
                 <small>These slides:
-                    <a href="http://heddn.github.io/drupal-security">http://heddn.github.io/drupal-security</a>
+                    <a href="http://heddn.github.io/drupal-security">http://heddn.github.io/drupal-security/</a>
                 </small>
             </p>
             <aside class="notes">
-                -- Start with Greg
             </aside>
         </section>
         <section>
-            <h2><a href="https://twitter.com/greggles">@greggles Knaddison</a>
+            <h2><a href="https://drupal.org/u/heddn">@heddn (Lucas Hedding)</a>
             </h2>
 
             <div>
                 <div style="float: right; width:250px;">
-                    <a href="https://www.card.com/" target="_blank">
-                        <img src="assets/cardLogo-vertical-rgb.png" alt="CARD.com logo"/>
+                    <a href="https://mtech-llc.com/" target="_blank">
+                        <img src="assets/mtech-logo-medium.png" alt="MTech logo"/>
                     </a>
                 </div>
                 <ul style="float:left">
-                    <li>Contributed to Drupal for 9+ years</li>
-                    <li>Pretty interested in security</li>
-                    <li>Wrote
-                        <a href="http://crackingdrupal.com">Cracking Drupal</a>
+                    <li>Contributed to Drupal for 4 years</li>
+                    <li>CISSP
+                        (<a href="https://www.isc2.org/cissp/default.aspx">isc2.org</a>)
                     </li>
-                    <li>
-                        <a href="https://www.card.com">CARD.com</a> - mobile alternative to a bank
+                    <li>Drupal.org git administrator
+                        (<a href="https://www.drupal.org/project/projectapplications">drupal.org/project/projectapplications</a>)
                     </li>
-                    <li>
-                        <a href="https://www.card.com/careers">https://www.card.com/careers</a>
+                    <li>Core contribution mentor
+                        (<a href="https://www.drupal.org/core-office-hours">drupal.org/core-office-hours</a>)
                     </li>
-                </ul>
-            </div>
-        </section>
-        <section>
-            <h2><a href="https://twitter.com/mlh407">Michael Hess </a></h2>
-
-            <div>
-                <div style="float:right; width:250px;">
-                    <a href="http://www.umich.edu" target="_blank">
-                        <img src="assets/michigan-logo.jpg" alt="Michigan Logo"/>
-                    </a>
-                </div>
-                <ul style="float:left">
-                    <li>Contributed to Drupal for 6+ years</li>
-                    <li>Hosts 900 sites at the University of Michigan</li>
-                    <li>Works on large scale health care projects.</li>
-                    <li>Teaches 3 classes on Content management platforms</li>
+                    <li>Run a Drupal services company in Leon, Nicaragua</li>
                 </ul>
             </div>
         </section>
@@ -129,25 +111,24 @@
             <h2>What are the most common issues?</h2>
             <img height="500" src="assets/Drupal_Security_-_SA_Analysis_vuln_types.png" alt="Vulnerabilities by type"/>
             <aside class="notes">
-                After this Switch to Michael
             </aside>
         </section>
-        <section data-background="assets/target.jpg">
-            <h1 style="color:white">Why</h1>
+        <section>
+            <section>
+                <h1>Alternative Title</h1>
+                <h2>
+                    Accepting user provided input, then storing it securely and rendering it back to the page.
+                </h2>
+            </section>
+            <section>
+                <blockquote cite="https://www.drupal.org/node/28984">
+                    When handling data, the golden rule is to store exactly what the user typed.
+                </blockquote>
 
-            <div>
-                <p style="color:white">
-                    The FBI notes that cyber attacks are eclipsing terrorism as the primary threat facing the US.
-                </p>
-
-                <p style="color:white">
-                    75% of small and medium business surveyed reported cyber attacks.
-                </p>
-
-                <p style="color:white">
-                    A single breach in 2010 reported 38 terabytes of data stolen. That is 2X the size of the Library of Congress.
-                </p>
-            </div>
+                <blockquote cite="https://www.drupal.org/node/28984">
+                    No piece of user-submitted content should ever be placed as-is into HTML.
+                </blockquote>
+            </section>
         </section>
         <section>
             <h4>Everyone gets hacked...</h4>
@@ -164,7 +145,6 @@
             <h2>The Tale of the Red Ribbon Hacker</h2>
 
             <p>Our first tale is about a little online shoe store run by a kind woman named Myrtle.</p>
-
             <p>From her little online store, she mails shoes around the world, and each shoe box comes tied up in a red ribbon like a box of candy.</p>
             <aside class="notes">
                 <p>Because Myrtle is efficient, her website takes customers’ orders and then redirects them to a third party for payments. This makes PCI-compliance easier. And gives Myrtle more time to tie red ribbons into bows — she has nothing to worry about!</p>
@@ -174,15 +154,10 @@
             <h2>Background</h2>
 
             <p>Myrtle’s Shoe Store website first launched on Nov. 15, 2012.</p>
-
             <p>The site receives about 3,000 orders per month — that’s a lot of ribbons!</p>
-
             <p>On March 11th, 2013...</p>
-
             <p>Myrtle noticed that the shoe store was not receiving any money into its account.</p>
-
             <p>She went online and placed an order. All seemed to work as it should.</p>
-
             <p>Myrtle was so confused, Where was all the money?</p>
             <aside class="notes">
                 <p>The dev shop that built the site did not provide support after the site went live. The shoe store also does not have a full-time web person on staff.</p>
@@ -192,44 +167,72 @@
             <h2>What happened</h2>
 
             <p>The shoe store’s payment gateway URL configuration was not pointing to its payment gateway.</p>
-
             <p class='fragment'>There was a POST request on the page to change this URL by someone at the company's IP address.</p>
-
             <p class='fragment'>Someone had used a security vulnerability in Ubercart and added Javascript into a field.</p>
-
             <p class='fragment'>Normally the Javascript would be escaped, but since the site was not patched for
                 <a href="https://www.drupal.org/node/1922418">SA-CONTRIB-2013-020 - Ubercart - Cross site scripting (XSS)</a>, the Javascript executed!
             </p>
             <aside class="notes">
-                Go back to Greg
             </aside>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## What is XSS?
-                - Cross Site Scripting
-                - Code in the browser
-                - Making requests
-                - Parsing responses
-                - Javascript, Flash, Java, etc.
-            </script>
+        <section>
+            <h2>What is XSS?</h2>
+            <ul>
+                <li>Cross Site Scripting</li>
+                <li>Code in the browser</li>
+                <li>Making requests</li>
+                <li>Parsing responses</li>
+                <li>Javascript, Flash, Java, etc.</li>
+            </ul>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Testing for XSS
-                - &lt;script&gt;alert('title');&lt;/script&gt;
-                - &lt;img src="a" onerror="alert('title');"&gt;
-                - Catches 90%
-            </script>
+        <section>
+            <h2>Testing for XSS</h2>
+            <ul>
+                <li><code>&lt;script&gt;alert('title');&lt;/script&gt;</code></li>
+                <li><code>&lt;img src="a" onerror="alert('title');"&gt;</code></li>
+                <li>Catches 90%</li>
+            </ul>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Fixing XSS?
-                - Filter text
-                - On output to browser
-                - As late as reasonable
-                - Some API filters by default where reasonable
-            </script>
+        <section>
+            <h2>Fixing XSS?</h2>
+            <ul>
+                <li>Filter text</li>
+                <li>On output to browser</li>
+                <li>As late as reasonable</li>
+                <li>Some API filters by default where reasonable</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Fixing XSS: Use API</h2>
+            <ul>
+                <li><code>check_plain()</code></li>
+                <li><code>format_string()</code></li>
+                <li><code>t()</code></li>
+                <li><code>l()</code></li>
+                <li><code>hook_menu()</code> titles</li>
+                <li>block <code>#description</code> (not title)</li>
+                <li>User names are always expected to be sanitized</li>
+                <li><code>watchdog()</code></li>
+                <li><code>drupal_set_title()</code></li>
+                <li><code>check_markup()</code></li>
+                <li><code>filter_xss()</code></li>
+                <li><code>filter_xss_admin()</code></li>
+                <li><code>check_url()</code></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Fixing XSS: Form API</h2>
+            <p>Many Form API elements are sanitized by default.</p>
+            <ul>
+                <li>select <code>#options</code> </li>
+                <li>checkbox <code>#options</code> & <code>#default_value</code> </li>
+                <li>checkboxes <code>#options</code> & <code>#default_value</code> </li>
+                <li>radio <code>#options</code> & <code>#default_value</code> </li>
+                <li>radios <code>#options</code> & <code>#default_value</code> </li>
+                <li>textfield <code>#default_value</code> </li>
+            </ul>
+            <h3 style="text-align: left">Areas to watch: </h3>
+            <ul><li><code>#description</code> & <code>#title</code> FAPI are not sanitized</li></ul>
         </section>
         <section>
             <h2>Precautions against XSS</h2>
@@ -237,56 +240,53 @@
                 <img height="500" src="assets/filtering_text.png" alt="Filtering text"/>
             </a>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                <h2>Second Story</h2>
-                <h4>Site got a lot of spam reports, blacklisted</h4>
-                <ul>
-                    <li class="fragment">Searched log files and found requests from a specific IP</li>
-                    <li class="fragment">A memorial page allowed formatted text</li>
-                    <li class="fragment">Hid the format selector with css</li>
-                    <li class="fragment">But...</li>
-                </ul>
-            </script>
+        <section>
+            <h2>Second Story</h2>
+            <h4>Site got a lot of spam reports, blacklisted</h4>
+            <ul>
+                <li class="fragment">Searched log files and found requests from a specific IP</li>
+                <li class="fragment">A memorial page allowed formatted text</li>
+                <li class="fragment">Hid the format selector with css</li>
+                <li class="fragment">But...</li>
+            </ul>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## What is Access Bypass?
-                - User can **see** or **do** something
-                - That permissions/access should prevent
-            </script>
+        <section>
+            <h2>What is Access Bypass?</h2>
+            <ul>
+                <li>User can **see** or **do** something</li>
+                <li>That permissions/access should prevent</li>
+            </ul>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ### Where do we enforce it?
-                - Menu 'access callback'
-                - <code>if(user_access('see something'));</code>
-                - Node access system
-                - Entity access
-                - Field access
-                - Services & Ajax apis?
-            </script>
+        <section>
+            <h2>Where do we enforce it?</h2>
+            <ul>
+                <li>Menu 'access callback'</li>
+                <li><code>if(user_access('see something'));</code></li>
+                <li>Node access system</li>
+                <li>Entity access</li>
+                <li>Field access</li>
+                <li>Services & Ajax apis?</li>
+            </ul>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Testing for Access Bypass
-                - Visit node/nid etc.
-                - Visit anything/%node
-                - Use behat
-            </script>
+        <section>
+            <h2>Testing for Access Bypass</h2>
+            <ul><li>Visit node/nid etc.</li>
+                <li>Visit anything/%node</li>
+                <li>Use BEHAT</li>
+            </ul>
+
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Fixing Access Bypass?
-                - <code>user_access</code> for permissions
-                - <code>node_access</code>
-                - <code>entity_access</code>
-                - <code>$query->addTag('node_access');</code>
-                - menu definitions
-                - write automated tests
-            </script>
+        <section>
+            <h2>Fixing Access Bypass?</h2>
+            <ul>
+            <li><code>user_access</code> for permissions</li>
+            <li><code>node_access</code></li>
+            <li><code>entity_access</code></li>
+            <li><code>$query->addTag('node_access');</code></li>
+            <li>menu definitions</li>
+            <li>write automated tests</li>
+            </ul>
             <aside class="notes">
-                Go back to Michael
             </aside>
         </section>
         <section>
@@ -299,11 +299,8 @@
             <p class="fragment">Despite all this, the site was hacked. But how?</p>
             <aside class="notes">
                 <p>The site was set up with a newly ordered domain name.</p>
-
                 <p>The site’s modules and core install were all up to date.</p>
-
                 <p>The site was a simple brochure-type site with only one admin account.</p>
-
                 <p>The site was set up on a new development server, dedicated just to Harpers’ dev sites.</p>
             </aside>
         </section>
@@ -311,28 +308,20 @@
             <h2>How It Began…</h2>
 
             <p class="fragment">On the third day of developing the site, Jeremy, the content manager, was going to set up the content types.</p>
-
             <p class="fragment"> He stopped in horror. The site had viagra spam all over the front page.</p>
-
             <p class="fragment">Jeremy was not happy.</p>
         </section>
         <section>
             <h2>Call for help</h2>
 
             <p>Jeremy called Jean, in-house IT person, who began looking at logs to see how an up-to-date Drupal site got compromised.</p>
-
             <p>On a gray and windy day at the old Harpers’ house, Jean pulled the access logs for the site.</p>
-
             <p class="fragment">Jean had no idea what had happened, so she restored a backup.</p>
-
             <p class="fragment">2 days latter, it happened again</p>
             <aside class="notes">
                 <p>But she found only known and trusted IP addresses had accessed the site.</p>
-
                 <p>Only computers inside of Harpers' office had accessed the site.</p>
-
                 <p>Jean ran a virus scan on the computers that had accessed the site.</p>
-
                 <p>The scan was clean.</p>
             </aside>
         </section>
@@ -340,22 +329,22 @@
             <h2>What happened?</h2>
 
             <p>By default Apache on most OS's will run as a single user.</p>
-
             <p>That user has access to READ all the files for all sites on the system.</p>
-
             <p>Someone had compromised another site on the server.</p>
             <aside class="notes">
                 <p>Using that site, they were able to read settings.php and connect to the new Drupal site's database.</p>
-
                 <p>They were able to inject spam by updating the table directly. The attacker searched the entire file system for settings.php and then ran commands to update the database on any site they found.</p>
             </aside>
         </section>
         <section>
-            <h2>Server Configuration</h2>
-
-            <p>Too big to cover well today.</p>
-
-            <p>Lots of resources and consultants.</p>
+            <h2>Server Configuration: basics</h2>
+            <ul>
+                <li>Frequent security updates</li>
+                <li>Use SSH & git, not FTP</li>
+                <li>Remove sample data in MySQL</li>
+                <li>Disable remote MySQL connections if on same server as Apache/nginx</li>
+                <li>Use iptables or other firewall</li>
+            </ul>
         </section>
         <section>
             <h2>Drupal specific hosting</h2>
@@ -389,11 +378,8 @@
             <h2>Know Your Risk Level</h2>
 
             <p>Blog vs. complex site. Your blog is likely to be compromised to send spam or to act in part of a bot net.</p>
-
             <p>Your complex site might be compromised for the data it has.</p>
-
             <p>Security is a balance.</p>
-
             <p>Is your site a target?</P>
         </section>
         <section>
@@ -404,9 +390,7 @@
                 <li>
                     <a href="http://drupalpcicompliance.org/">Drupal PCI Compliance Report</a>
                 </li>
-                <li>Anyone work in HIPAA environment?</li>
                 <li>FedRAMP/FISMA Certification & Accreditation (C&A)?</li>
-                <li>Anyone work with Drupal in SCADA?</li>
             </ul>
         </section>
         <section>
@@ -444,7 +428,6 @@
 
             <p>Always make sure you update after a security release comes out.</p>
             <aside class="notes">
-                Go back to Greg
             </aside>
         </section>
         <section>
@@ -463,86 +446,71 @@
         <section>
             <h2>Modules enhancing security</h2>
             <ol>
-                <li>Security Review (https://drupal.org/project/security_review)</li>
-                <li>Paranoia (https://drupal.org/project/paranoia)</li>
-                <li>Newcomer: Password Strength (https://www.drupal.org/project/password_strength) - zxcvbn-based</li>
-                <li>Two Factor Authentication (https://drupal.org/project/tfa)</li>
-                <li>Permissions Lock (https://drupal.org/project/permissions_lock)</li>
-                <li>Hacked! (https://drupal.org/project/hacked)</li>
-                <li>Password policy (https://drupal.org/project/password_policy)</li>
-                <li>XSS Tester (https://www.drupal.org/sandbox/matthew.donadio/2319347)</li>
-                <li>Coder (https://www.drupal.org/project/coder)</li>
+                <li>Security Review (<a href="https://drupal.org/project/security_review">https://drupal.org/project/security_review</a>)</li>
+                <li>Paranoia (<a href="https://drupal.org/project/paranoia">https://drupal.org/project/paranoia</a>)</li>
+                <li>Permissions Lock (<a href="https://drupal.org/project/permissions_lock">https://drupal.org/project/permissions_lock</a>)</li>
+                <li>Hacked! (<a href="https://drupal.org/project/hacked">https://drupal.org/project/hacked</a>)</li>
+                <li>Password policy (<a href="https://drupal.org/project/password_policy">https://drupal.org/project/password_policy</a>)</li>
+                <li>XSS Tester (<a href="https://www.drupal.org/sandbox/matthew.donadio/2319347">https://www.drupal.org/sandbox/matthew.donadio/2319347</a>)</li>
+                <li>Coder (<a href="https://www.drupal.org/project/coder">https://www.drupal.org/project/coder</a>)</li>
+                <li>Drupalgeddon (<a href="https://www.drupal.org/project/drupalgeddon">https://www.drupal.org/project/drupalgeddon</a>)</li>
+                <li>Password Strength (<a href="https://www.drupal.org/project/password_strength">https://www.drupal.org/project/password_strength</a>) - zxcvbn-based</li>
+                <li>Two Factor Authentication (<a href="https://drupal.org/project/tfa">https://drupal.org/project/tfa</a>)</li>
             </ol>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Two Factor Auth ([TFA](https://drupal.org/project/tfa))
+        <section>
+            <h2> Two Factor Auth [TFA] (https://drupal.org/project/tfa)</h2>
                 <img src="assets/username_password.png" alt="Username + Password"/>
-            </script>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Two Factor Auth ([TFA](https://drupal.org/project/tfa))
+        <section>
+            <h2>Two Factor Auth [TFA] (https://drupal.org/project/tfa)</h2>
                 <img src="assets/2nd_factor.png" alt="Entering 2nd Factor"/>
-            </script>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## [Password Strength](https://www.drupal.org/project/password_strength)
+        <section>
+                <h2> Password Strength (https://www.drupal.org/project/password_strength)</h2>
                 <img src="assets/weak_password.png" alt="Entering 2nd Factor"/>
-            </script>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## [Password Strength](https://www.drupal.org/project/password_strength)
+        <section>
+                <h2>Password Strength (https://www.drupal.org/project/password_strength)</h2>
                 <img src="assets/good_password.png" alt="Entering 2nd Factor"/>
-            </script>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Drupal 6: Extended Support
-                ## [Drupal 8.0.0 + 3 months](https://www.drupal.org/d6-lts-support)
-            </script>
+        <section>
+                <h2>Drupal 6: Extended Support</h2>
+                <p><a href="https://www.drupal.org/d6-lts-support">Drupal 8.0.0 + 3 months</a></p>
         </section>
 
-        <section data-markdown>
-            <script type="text/template">
-                ## Drupal 8
-                ## Security improvements
-            </script>
+        <section>
+                <h2> Drupal 8</h2>
+                <h3>Security improvements</h3>
             <aside class="notes">
                 Drupal 8 is not ready for production in general.
                 There are several security issues.
             </aside>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Drupal 8: Twig
-                - Removes php from templates
-                - [Automatically sanitizes strings on output](https://www.drupal.org/node/1825952)
-            </script>
+        <section>
+            <h2>Drupal 8: Twig</h2>
+            <ul>
+                <li>Removes php from templates</li>
+                <li>Automatically sanitizes strings on output (<a href="https://www.drupal.org/node/1825952">https://www.drupal.org/node/1825952</a>)</li>
+            </ul>
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Drupal 8: WYSIWYG in core
-                - Streamlined filter mechanism (server and client side)
-                - No more full HTML as last resort
+        <section>
+                <h2>Drupal 8: WYSIWYG in core</h2>
+                <li>Streamlined filter mechanism (server and client side)</li>
+                <li>No more full HTML as last resort</li>
 
-                ![alt](assets/ckeditor_config.png)
-                ![alt](assets/allowed_html_tags.png)
-            </script>
+            <img src="assets/ckeditor_config.png"></img>
+            <img src="assets/allowed_html_tags.png"></img>
 
         </section>
-        <section data-markdown>
-            <script type="text/template">
-                ## Drupal 8: PHP
+        <section>
+                <h2>Drupal 8: PHP</h2>
 
-                Removed PHP module
+                <p>Removed PHP module</p>
 
-                ![alt](assets/php_module_162.png)
-
-                ![alt](assets/php_module_171.png)
-            </script>
+            <img src="assets/php_module_162.png"></img>
+            <br>
+            <img src="assets/php_module_171.png"></img>
         </section>
 
         <section>
@@ -600,6 +568,7 @@
     Reveal.initialize({
         controls: true,
         progress: true,
+        slideNumber: true,
         history: true,
         center: true,
         width: 1290,
@@ -612,6 +581,7 @@
 
         theme: Reveal.getQueryHash().theme || 'sky', // available themes are in /css/theme
         transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+        previewLinks: false,
 
         // Parallax scrolling
         // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
