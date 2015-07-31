@@ -60,6 +60,7 @@
         <section>
             <h2><a href="https://drupal.org/u/heddn">@heddn (Lucas Hedding)</a>
             </h2>
+            <p>twitter: @lucashedding</p>
 
             <div>
                 <div style="float: right; width:250px;">
@@ -210,7 +211,8 @@
                 <li><code>t()</code></li>
                 <li><code>l()</code></li>
                 <li><code>hook_menu()</code> titles</li>
-                <li>block <code>#description</code> (not title)</li>
+                <li>block <code>#description</code> (not title)</li>	(314) 604-1863	2 participants
+
                 <li>User names are always expected to be sanitized</li>
                 <li><code>watchdog()</code></li>
                 <li><code>drupal_set_title()</code></li>
@@ -292,7 +294,7 @@
         <section>
             <h2>Third Story</h2>
 
-            <p>Our second tale is about Harpers' LLC, a small web development company in upstate New York based out of a stately old house.</p>
+            <p>Our next tale is about Harpers' LLC, a small web development company in upstate New York based out of a stately old house.</p>
 
             <p>Harpers had just started work on a new site two days before. The site was provisioned at a brand-new domain. It was in maintenance mode.</p>
 
@@ -355,6 +357,71 @@
                 <li>Code, DB, uploaded files, config</li>
                 <li>Managed security updates</li>
             </ul>
+        </section>
+
+        <section>
+            <h2>Forth Story</h2>
+
+            <p>Our last story is about a brochure-ware  site.</p>
+
+            <p>The small, local-owned electrician had his  5 page site built in Drupal.</p>
+
+            <p>Everything was fine, but then after 2 years his hosting provider disabled the site because it was being used as a spam host.</p>
+            <p>But how & why?</p>
+        </section>
+        <section>
+            <h2>What happened?</h2>
+
+            <p>The site was not updated for <a href="https://www.drupal.org/SA-CORE-2014-005">SA-CORE-2014-005 - Drupal core - SQL injection a.k.a. Drupalgeddon</a>.</p>
+            <p>In fact, the site’s modules and core hadn't been updated in 2 years.</p>
+        </section>
+        <section>
+            <h2>What is SQL injection?</h2>
+            <ul>
+                <li>Malicious SQL statements are inserted into an input field for execution. </li>
+                <li>With SQL injection, a hacker can:</li>
+                <ul>
+                    <li>Drop tables</li>
+                    <li>Dump the database</li>
+                    <li>Change or insert new data</li>
+                </ul>
+
+            </ul>
+        </section>
+        <section>
+            <h2>Example of Drupalgeddon & SQL injection</h2>
+            <p><pre><code>$query = "SELECT * FROM foo WHERE id IN (:ids)";
+$args = [
+    'ids' => [
+        1,
+        2,
+        3,
+    ]
+];
+$db->expandArguments($query, $args);
+
+// $query = SELECT * FROM foo WHERE id IN (:ids_0, :ids_1, :ids_2)
+// $args = ['ids_0' => 1, 'ids_1' => 2, 'ids_2' => 3]</code></pre></p>
+            <p>Where's the bug?</p>
+            <pre class="fragment"><code class="fragment">$args = [
+    'ids' => [
+    '   0); DROP TABLE foo; --' => 1
+    ],
+];
+// SELECT * FROM foo WHERE id IN (:ids_0); DROP TABLE foo; --)</code></pre>
+            <p class="fragment">HACKED!!!</p>
+        </section>
+
+        <section>
+            <h2>Fixing SQL injection?</h2>
+            <ul>
+                <li>Use the database APIs</li>
+                <li>Update when security advisories are announced on d.o.</li>
+            </ul>
+            <aside class="notes">
+                <p>This was a very easy fix, if you used the DB APIs</p>
+                <p>In the case of this, the window was *only* 7 hours</p>
+            </aside>
         </section>
 
         <section>
@@ -492,6 +559,7 @@
             <ul>
                 <li>Removes php from templates</li>
                 <li>Automatically sanitizes strings on output (<a href="https://www.drupal.org/node/1825952">https://www.drupal.org/node/1825952</a>)</li>
+                <li><pre><code>{{ form.user_input }} {# Will auto-escape between {{ ... }} #}</code></pre></li>
             </ul>
         </section>
         <section>
